@@ -30,8 +30,3 @@ elif (mes == 2 and dia >= 19) or (mes == 3 and dia <= 20):
 	print("Seu signo é Peixes")
 else:
 	print("Data inválida!")
-
-
-
-
-print("ocaradoMegadeth")
