@@ -1,7 +1,5 @@
-# Solicita a idade da pessoa
 idade = int(input("Digite sua idade: "))
 
-# Verifica a classificação indicativa permitida
 if idade < 10:
 	print("Você pode assistir apenas a filmes com classificação Livre.")
 elif idade <= 11:
