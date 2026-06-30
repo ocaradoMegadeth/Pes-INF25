@@ -1,0 +1,1 @@
+print ("vai se fuder eliezer estou em aula")
