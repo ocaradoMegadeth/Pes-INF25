@@ -16,13 +16,15 @@ while True:
             print("Erro: código -1 não é permitido.")
         else:
             cadastrado = False
+            i = 0
 
-            for i in range(len(produtos)):
+            while i < 10:
                 if produtos[i] == "-1":
                     produtos[i] = codigo
                     print("Código cadastrado com sucesso!")
                     cadastrado = True
                     break
+                i += 1
 
             if not cadastrado:
                 print("Falha: não há espaço para cadastrar mais produtos.")

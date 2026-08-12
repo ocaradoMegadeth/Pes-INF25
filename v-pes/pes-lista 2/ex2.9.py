@@ -1,11 +1,23 @@
-deposito = float(input("Valor mensal depositado: "))
+qtd = int(input("Quantidade de notas: "))
 
-saldo = 0
 
-juros = 0.005
+soma = 0
+i = 0
 
-for mes in range(1, 25):
 
-    saldo = saldo * (1 + juros) + deposito
+while i < qtd:
+   nota = float(input("Digite a nota: "))
+   soma = soma + nota
+   i = i + 1
 
-    print(f"Mês {mes}: R$ {saldo:.2f}")
+
+media = soma / qtd
+
+
+print("Média:", media)
+
+
+if media >= 6:
+   print("Aprovado")
+else:
+   print("Reprovado")

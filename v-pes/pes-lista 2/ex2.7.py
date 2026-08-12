@@ -1,16 +1,23 @@
 qtd = int(input("Quantidade de notas: "))
 
-soma = 0
 
-for i in range(qtd):
-    nota = float(input(f"Digite a nota {i+1}: "))
-    soma += nota
+soma = 0
+i = 0
+
+
+while i < qtd:
+   nota = float(input("Digite a nota: "))
+   soma = soma + nota
+   i = i + 1
+
 
 media = soma / qtd
 
-print(f"Média: {media:.2f}")
+
+print("Média:", media)
+
 
 if media >= 6:
-    print("Aprovado")
+   print("Aprovado")
 else:
-    print("Reprovado")
+   print("Reprovado")

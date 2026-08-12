@@ -1,12 +1,13 @@
 # Cadastro de medidas corpóreas
 
-codigos = []
-nomes = []
-idades = []
-alturas = []
-pesos = []
+codigos = [0] * 10
+nomes = [""] * 10
+idades = [0] * 10
+alturas = [0] * 10
+pesos = [0] * 10
 
 proximo_codigo = 1
+quantidade = 0
 
 while True:
     print("\n===== MENU =====")
@@ -20,75 +21,96 @@ while True:
     opcao = input("Escolha uma opção: ")
 
     if opcao == "1":
-        codigos.append(proximo_codigo)
-        print("Código da pessoa:", proximo_codigo)
-        proximo_codigo += 1
+        if quantidade < 10:
+            codigos[quantidade] = proximo_codigo
 
-        nomes.append(input("Nome: "))
-        idades.append(int(input("Idade: ")))
-        alturas.append(float(input("Altura: ")))
-        pesos.append(float(input("Peso: ")))
+            print("Código da pessoa:", proximo_codigo)
 
-        print("Cadastro realizado com sucesso!")
+            nomes[quantidade] = input("Nome: ")
+            idades[quantidade] = int(input("Idade: "))
+            alturas[quantidade] = float(input("Altura: "))
+            pesos[quantidade] = float(input("Peso: "))
+
+            proximo_codigo += 1
+            quantidade += 1
+
+            print("Cadastro realizado com sucesso!")
+        else:
+            print("Não há espaço para novos cadastros.")
 
     elif opcao == "2":
         codigo = int(input("Código para excluir: "))
 
-        if codigo in codigos:
-            i = codigos.index(codigo)
+        i = 0
 
-            codigos.pop(i)
-            nomes.pop(i)
-            idades.pop(i)
-            alturas.pop(i)
-            pesos.pop(i)
+        while i < quantidade:
+            if codigos[i] == codigo:
+                while i < quantidade - 1:
+                    codigos[i] = codigos[i + 1]
+                    nomes[i] = nomes[i + 1]
+                    idades[i] = idades[i + 1]
+                    alturas[i] = alturas[i + 1]
+                    pesos[i] = pesos[i + 1]
 
-            print("Cadastro excluído!")
+                    i += 1
+
+                quantidade -= 1
+                print("Cadastro excluído!")
+                break
+
+            i += 1
         else:
             print("Código não encontrado.")
 
     elif opcao == "3":
         nome = input("Nome para alterar: ")
 
-        if nome in nomes:
-            i = nomes.index(nome)
+        i = 0
 
-            idades[i] = int(input("Nova idade: "))
-            alturas[i] = float(input("Nova altura: "))
-            pesos[i] = float(input("Novo peso: "))
+        while i < quantidade:
+            if nomes[i] == nome:
+                idades[i] = int(input("Nova idade: "))
+                alturas[i] = float(input("Nova altura: "))
+                pesos[i] = float(input("Novo peso: "))
 
-            print("Cadastro alterado!")
+                print("Cadastro alterado!")
+                break
+
+            i += 1
         else:
             print("Pessoa não encontrada.")
 
     elif opcao == "4":
-        if nomes == []:
+        if quantidade == 0:
             print("Nenhum cadastro.")
         else:
             i = 0
-            while True:
-                try:
-                    print("\nCódigo:", codigos[i])
-                    print("Nome:", nomes[i])
-                    print("Idade:", idades[i])
-                    print("Altura:", alturas[i])
-                    print("Peso:", pesos[i])
-                    i += 1
-                except IndexError:
-                    break
+
+            while i < quantidade:
+                print("\nCódigo:", codigos[i])
+                print("Nome:", nomes[i])
+                print("Idade:", idades[i])
+                print("Altura:", alturas[i])
+                print("Peso:", pesos[i])
+
+                i += 1
 
     elif opcao == "5":
         nome = input("Nome para pesquisar: ")
 
-        if nome in nomes:
-            i = nomes.index(nome)
+        i = 0
 
-            print("\nCadastro encontrado:")
-            print("Código:", codigos[i])
-            print("Nome:", nomes[i])
-            print("Idade:", idades[i])
-            print("Altura:", alturas[i])
-            print("Peso:", pesos[i])
+        while i < quantidade:
+            if nomes[i] == nome:
+                print("\nCadastro encontrado:")
+                print("Código:", codigos[i])
+                print("Nome:", nomes[i])
+                print("Idade:", idades[i])
+                print("Altura:", alturas[i])
+                print("Peso:", pesos[i])
+                break
+
+            i += 1
         else:
             print("Pessoa não encontrada.")
 

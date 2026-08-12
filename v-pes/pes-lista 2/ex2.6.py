@@ -1,12 +1,18 @@
-
 n = int(input("Digite o número: "))
+
 
 inicio = int(input("Digite o início da tabuada: "))
 
+
 fim = int(input("Digite o fim da tabuada: "))
 
-print(f"Tabuada do número {n}")
 
-for i in range(inicio, fim + 1):
+print("Tabuada do número", n)
 
-    print(f"{n} x {i} = {n * i}")
+
+i = inicio
+
+
+while i <= fim:
+   print(n, "x", i, "=", n * i)
+   i = i + 1
