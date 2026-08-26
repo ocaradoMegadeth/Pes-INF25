@@ -1,0 +1,1 @@
+#preguiça aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
